@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}"></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/styles/PageCRUD.css}" href="/static/styles/PageCRUD.css">
+    <link rel="stylesheet" th:href="@{/styles/Header.css}">
+    <link rel="stylesheet" th:href="@{/styles/Footer.css}">
+</head>
+<body>
+<header th:insert="blocks/headers :: header"></header>
+
+<main class="mt-2 mb-3">
+    <div class="cont">
+        <div class="sidebar">
+            <p></p>
+        </div>
+
+        <div class="content-1">
+            <a th:href="'/crud/table/Client'" class="link-tables">
+                <div class="inner-content-1">
+                    <p class="icon">
+                        <img th:src="@{/images/PageCRUDClient.png}" width="33%" height="33%">
+                    </p>
+                    <p class="icon-text">CLIENT</p>
+                </div>
+            </a>
+
+            <div class="inner-gap-1">
+                <p></p>
+            </div>
+
+            <a th:href="'/crud/table/Sotrudnik'" class="link-tables">
+                <div class="inner-content-1">
+                    <p class="icon">
+                        <img th:src="@{/images/PageCRUDSotrudnik.png}" width="33%" height="33%">
+                    </p>
+                    <p class="icon-text">SOTRUDNIK</p>
+                </div>
+            </a>
+
+            <div class="inner-gap-1">
+                <p></p>
+            </div>
+
+            <a th:href="'/crud/table/Stavka'" class="link-tables">
+                <div class="inner-content-1">
+                    <p class="icon">
+                        <img th:src="@{/images/PageCRUDStavka.png}" width="33%" height="33%">
+                    </p>
+                    <p class="icon-text">STAVKA</p>
+                </div>
+            </a>
+
+            <div class="inner-gap-1">
+                <p></p>
+            </div>
+
+            <a th:href="'/crud/table/Adres_sotr'" class="link-tables">
+                <div class="inner-content-1">
+                    <p class="icon">
+                        <img th:src="@{/images/PageCRUDAddres_sotr.png}" width="33%" height="33%">
+                    </p>
+                    <p class="icon-text">ADRES_SOTR</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="sidebar">
+            <p></p>
+        </div>
+    </div>
+
+    <div class="cont">
+        <div class="sidebar">
+            <p></p>
+        </div>
+
+        <div class="content-1">
+            <a th:href="'/crud/table/Viplata'" class="link-tables">
+                <div class="inner-content-1">
+                    <p class="icon">
+                        <img th:src="@{/images/PageCRUDViplata.png}" width="33%" height="33%">
+                    </p>
+                    <p class="icon-text">VIPLATA</p>
+                </div>
+            </a>
+
+            <div class="inner-gap-1">
+                <p></p>
+            </div>
+
+            <a th:href="'/crud/table/Matches'" class="link-tables">
+                <div class="inner-content-1">
+                    <p class="icon">
+                        <img th:src="@{/images/PageCRUDMatch.png}" width="33%" height="33%">
+                    </p>
+                    <p class="icon-text">MATCH</p>
+                </div>
+            </a>
+
+            <div class="inner-gap-1">
+                <p></p>
+            </div>
+
+            <a th:href="'/crud/table/Kat_match'" class="link-tables">
+                <div class="inner-content-1">
+                    <p class="icon">
+                        <img th:src="@{/images/PageCRUDKat_match.png}" width="33%" height="33%">
+                    </p>
+                    <p class="icon-text">KAT_MATCH</p>
+                </div>
+            </a>
+
+            <div class="inner-gap-1">
+                <p></p>
+            </div>
+
+            <a th:href="'/crud/table/Otdel'" class="link-tables">
+                <div class="inner-content-1">
+                    <p class="icon">
+                        <img th:src="@{/images/PageCRUDDepartment.png}" width="33%" height="33%">
+                    </p>
+                    <p class="icon-text">DEPARTMENT</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="sidebar">
+            <p></p>
+        </div>
+    </div>
+
+    <div class="cont mb-4">
+        <div class="sidebar">
+            <p></p>
+        </div>
+
+        <div class="content-1">
+            <a th:href="'/crud/table/Zarplata'" class="link-tables">
+                <div class="inner-content-1">
+                    <p class="icon">
+                        <img th:src="@{/images/PageCRUDZarplata.png}" width="33%" height="33%">
+                    </p>
+                    <p class="icon-text">ZARPLATA</p>
+                </div>
+            </a>
+
+            <div class="inner-gap-1">
+                <p></p>
+            </div>
+
+            <a th:href="'/crud/table/Dolzgnost'" class="link-tables">
+                <div class="inner-content-1">
+                    <p class="icon">
+                        <img th:src="@{/images/PageCRUDDolzgnost.png}" width="33%" height="33%">
+                    </p>
+                    <p class="icon-text">DOLZGNOST</p>
+                </div>
+            </a>
+
+            <div class="inner-gap-1">
+                <p></p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer th:insert="blocks/footers :: footer"></footer>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

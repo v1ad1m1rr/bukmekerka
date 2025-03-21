@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" th:href="@{/styles/PageaddRow.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<body class="body">
+    <section class="client" th:if="'Client' == ${tableName}">
+        <form class="decor" th:action="'/crud/table/addRow/' + ${tableName}" method="post">
+            <div class="form-left-decoration"></div>
+            <div class="form-right-decoration"></div>
+            <div class="circle"></div>
+            <div class="form-inner">
+                <h3 th:text="${nameAction}"></h3>
+                <input type="text" name="secondName" placeholder="Фамилия">
+                <input type="text" name="firstName" placeholder="Имя">
+                <input type="text" name="otchestvo" placeholder="Отчество">
+                <input type="date" name="dataRog" placeholder="Дата рождения">
+                <input type="date" name="dataReg" placeholder="Дата регистрации">
+                <input type="text" name="cardNum" placeholder="Номер карты">
+                <input type="email" name="email" placeholder="Почта">
+                <input type="text" name="password" placeholder="Пароль">
+                <input type="submit" value="Принять">
+            </div>
+        </form>
+    </section>
+
+    <section class="sotrudnik" th:if="'Sotrudnik' == ${tableName}">
+        <form class="decor" th:action="'/crud/table/addRow/' + ${tableName}" method="post">
+            <div class="form-left-decoration"></div>
+            <div class="form-right-decoration"></div>
+            <div class="circle"></div>
+            <div class="form-inner">
+                <h3 th:text="${nameAction}"></h3>
+                <input type="text" name="secondName" placeholder="Фамилия">
+                <input type="text" name="firstName" placeholder="Имя">
+                <input type="text" name="otchestvo" placeholder="Отчество">
+                <input type="text" name="tel" placeholder="Телефон">
+                <input type="date" name="dataRog" placeholder="Дата рождения">
+                <input type="date" name="dataHire" placeholder="Дата найма">
+                <input type="text" name="idOtdela" placeholder="Номер отдела">
+                <input type="text" name="idAdres" placeholder="Номер адреса">
+                <input type="text" name="idDolzgnost" placeholder="Номер должности">
+                <input type="text" name="idZarplata" placeholder="Номер Зарплаты">
+                <input type="email" name="email" placeholder="Почта">
+                <input type="text" name="password" placeholder="Пароль">
+                <input type="submit" value="Принять">
+            </div>
+        </form>
+    </section>
+
+    <section class="adres_sotr" th:if="'Adres_sotr' == ${tableName}">
+        <form class="decor" th:action="'/crud/table/addRow/' + ${tableName}" method="post">
+            <div class="form-inner">
+                <h3 th:text="${nameAction}"></h3>
+                <input type="text" name="city" placeholder="Город">
+                <input type="text" name="street" placeholder="Улица">
+                <input type="text" name="house" placeholder="Дом">
+                <input type="text" name="korpus" placeholder="Корпус">
+                <input type="text" name="kvartira" placeholder="Квартира">
+                <input type="submit" value="Принять">
+            </div>
+        </form>
+    </section>
+
+    <section class="dolzgnost" th:if="'Dolzgnost' == ${tableName}">
+        <form class="decor" th:action="'/crud/table/addRow/' + ${tableName}" method="post">
+            <div class="form-inner">
+                <h3 th:text="${nameAction}"></h3>
+                <input type="text" name="nazvanie" placeholder="Название должности">
+                <input type="submit" value="Принять">
+            </div>
+        </form>
+    </section>
+
+    <section class="kat_match" th:if="'Kat_match' == ${tableName}">
+        <form class="decor" th:action="'/crud/table/addRow/' + ${tableName}" method="post">
+            <div class="form-inner">
+                <h3 th:text="${nameAction}"></h3>
+                <input type="text" name="nazvanie" placeholder="Название категории матча">
+                <input type="submit" value="Принять">
+            </div>
+        </form>
+    </section>
+
+    <section class="otdel" th:if="'Otdel' == ${tableName}">
+        <form class="decor" th:action="'/crud/table/addRow/' + ${tableName}" method="post">
+            <div class="form-inner">
+                <h3 th:text="${nameAction}"></h3>
+                <input type="text" name="nazvanie" placeholder="Название отдела">
+                <input type="text" name="tel" placeholder="Телефон">
+                <input type="submit" value="Принять">
+            </div>
+        </form>
+    </section>
+
+    <section class="zarplata" th:if="'Zarplata' == ${tableName}">
+        <form class="decor" th:action="'/crud/table/addRow/' + ${tableName}" method="post">
+            <div class="form-inner">
+                <h3 th:text="${nameAction}"></h3>
+                <input type="text" name="zarplata" placeholder="Зарплата">
+                <input type="submit" value="Принять">
+            </div>
+        </form>
+    </section>
+
+    <section class="matches" th:if="'Matches' == ${tableName}">
+        <form class="decor" th:action="'/crud/table/addRow/' + ${tableName}" method="post">
+            <div class="form-inner">
+                <h3 th:text="${nameAction}"></h3>
+                <input type="text" name="id_team1" placeholder="Команда 1">
+                <input type="text" name="id_team2" placeholder="Команда 2">
+                <input type="datetime-local" name="match_date" placeholder="Дата матча">
+                <input type="text" name="kat_match" placeholder="Категория матча">
+                <input type="text" name="championship" placeholder="Чемпионат">
+                <input type="text" name="id_status" placeholder="Статус">
+                <input type="text" name="count_team1" placeholder="Счет первой комнады">
+                <input type="text" name="count_team2" placeholder="Счет второй команды">
+                <input type="submit" value="Принять">
+            </div>
+        </form>
+    </section>
+
+    <section class="stavka" th:if="'Stavka' == ${tableName}">
+        <form class="decor" th:action="'/crud/table/addRow/' + ${tableName}" method="post">
+            <div class="form-inner">
+                <h3 th:text="${nameAction}"></h3>
+                <input type="text" name="summa" placeholder="Сумма">
+                <input type="text" name="koef" placeholder="Коэффициент">
+                <input type="datetime-local" name="date" placeholder="Дата">
+                <input type="text" name="id_client" placeholder="Номер клиента">
+                <input type="text" name="id_match" placeholder="Номер матча">
+                <input type="text" name="id_bet_team" placeholder="Номер поставленной команды">
+                <input type="text" name="id_status" placeholder="Номер Статуса">
+                <input type="submit" value="Принять">
+            </div>
+        </form>
+    </section>
+
+    <section class="viplata" th:if="'Viplata' == ${tableName}">
+        <form class="decor" th:action="'/crud/table/addRow/' + ${tableName}" method="post">
+            <div class="form-inner">
+                <h3 th:text="${nameAction}"></h3>
+                <input type="text" name="summa" placeholder="Сумма">
+                <input type="datetime-local" name="date" placeholder="Дата">
+                <input type="text" name="id_stavka" placeholder="Номер ставки">
+                <input type="text" name="id_client" placeholder="Номер клиента">
+                <input type="submit" value="Принять">
+            </div>
+        </form>
+    </section>
+</body>
+
+</html>

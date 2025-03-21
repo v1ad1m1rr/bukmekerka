@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/Header.css}" href="/static/styles/Header.css">
+    <link rel="stylesheet" th:href="@{/styles/PageStatsAll.css}" href="/static/styles/PageStatsAll.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/Footer.css}">
+</head>
+<body>
+<header th:insert="blocks/headers :: header"></header>
+
+<form th:action="'/statsAll'" method="post">
+    <input type="date" name="date" value="Введите дату">
+    <input type="submit" value="Принять">
+</form>
+
+<table>
+    <caption>Stats Company</caption>
+    <tr>
+        <th>Номер клиента</th>
+        <th colspan="3">Фамилия Имя Отчество</th>
+        <th colspan="2">Матч</th>
+        <th>Дата матча</th>
+        <th>Сумма ставки</th>
+        <th>Коэффициент ставки</th>
+        <th>Дата ставки</th>
+        <th>Сумма выплаты</th>
+        <th>Дата выплаты</th>
+    </tr>
+    <tr th:each="splitArray : ${list}">
+        <td th:text="${splitArray[0]}"></td>
+        <td th:text="${splitArray[1]}"></td>
+        <td th:text="${splitArray[2]}"></td>
+        <td th:text="${splitArray[3]}"></td>
+        <td th:text="${splitArray[4]}"></td>
+        <td th:text="${splitArray[5]}"></td>
+        <td th:text="${splitArray[6]}"></td>
+        <td th:text="${splitArray[7]}"></td>
+        <td th:text="${splitArray[8]}"></td>
+        <td th:text="${splitArray[9]}"></td>
+        <td th:text="${splitArray[10]}"></td>
+        <td th:text="${splitArray[11]}"></td>
+    </tr>
+</table>
+
+
+<div th:if="${isFirst} == 'false'">
+    <script src="https://www.google.com/jsapi"></script>
+    <script>
+        google.load("visualization", "1", {packages:["corechart"]});
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+         var data = google.visualization.arrayToDataTable([
+          ['Сумма ставок', 'Сумма выплат'],
+          ['Сумма поставленных денег', [[${sumStavka}]]],
+          ['Сумма выплаченных денег', [[${sumViplata}]]],
+         ]);
+         var options = {
+          title: 'Сумма поставленных / Сумма выплаченных',
+          is3D: true,
+          pieResidueSliceLabel: 'Остальное'
+         };
+         var chart = new google.visualization.PieChart(document.getElementById('stavkaViplata'));
+          chart.draw(data, options);
+        }
+    </script>
+
+    <script>
+        google.load("visualization", "1", {packages:["corechart"]});
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+         var data = google.visualization.arrayToDataTable([
+          ['Успешные ставки', 'Проигранные ставки'],
+          ['Успешные ставки', [[${successStavok}]]],
+          ['Проигранные ставки', [[${losesStavok}]]],
+          ['Ставки в процессе',    [[${inProcessStavok}]]],
+         ]);
+         var options = {
+          title: 'Количество ставок: [[${allStavok}]]',
+          is3D: true,
+          pieResidueSliceLabel: 'Остальное'
+         };
+         var chart = new google.visualization.PieChart(document.getElementById('countStavok'));
+          chart.draw(data, options);
+        }
+    </script>
+    <script>
+        google.load("visualization", "1", {packages:["corechart"]});
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+         var data = google.visualization.arrayToDataTable([
+          ['Месяц', 'Ставки', 'Выплаты'],
+          ['январь', [[${stavVipAtMonth[0]}]], [[${stavVipAtMonth[1]}]]],
+          ['февраль', [[${stavVipAtMonth[2]}]], [[${stavVipAtMonth[3]}]]],
+          ['март', [[${stavVipAtMonth[4]}]], [[${stavVipAtMonth[5]}]]],
+          ['апрель', [[${stavVipAtMonth[6]}]], [[${stavVipAtMonth[7]}]]],
+          ['май', [[${stavVipAtMonth[8]}]], [[${stavVipAtMonth[9]}]]],
+          ['июнь', [[${stavVipAtMonth[10]}]], [[${stavVipAtMonth[11]}]]],
+          ['июль', [[${stavVipAtMonth[12]}]], [[${stavVipAtMonth[13]}]]],
+          ['август', [[${stavVipAtMonth[14]}]], [[${stavVipAtMonth[15]}]]],
+          ['сентябрь', [[${stavVipAtMonth[16]}]], [[${stavVipAtMonth[17]}]]],
+          ['отктябрь', [[${stavVipAtMonth[18]}]], [[${stavVipAtMonth[19]}]]],
+          ['ноябрь', [[${stavVipAtMonth[20]}]], [[${stavVipAtMonth[21]}]]],
+          ['декабрь', [[${stavVipAtMonth[22]}]], [[${stavVipAtMonth[23]}]]],
+         ]);
+         var options = {
+          title: 'Ставки и выплаты на события за каждый месяц',
+          hAxis: {title: 'Месяц'},
+          vAxis: {title: 'Тыс. рублей'}
+         };
+         var chart = new google.visualization.ColumnChart(document.getElementById('monthsIncome'));
+         chart.draw(data, options);
+        }
+    </script>
+
+    <script>
+        google.load("visualization", "1", {packages:["corechart"]});
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+         var data = google.visualization.arrayToDataTable([
+          ['Категория', 'Ставки'],
+          ['[[${kats[0]}]]', [[${kats[1]}]]],
+          ['[[${kats[2]}]]', [[${kats[3]}]]],
+          ['[[${kats[4]}]]',    [[${kats[5]}]]],
+         ]);
+         var options = {
+          title: 'Топ 3 категорий матча по ставкам',
+          is3D: true,
+          pieResidueSliceLabel: 'Остальное'
+         };
+         var chart = new google.visualization.PieChart(document.getElementById('bestKategory'));
+          chart.draw(data, options);
+        }
+    </script>
+
+</div>
+<footer th:insert="blocks/footers :: footer"></footer>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

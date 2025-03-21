@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" th:href="@{/styles/PagechangeRow.css}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+<body class="body">
+<form class="decor" method="post" th:if="'Client' == ${tableName}">
+    <div class="form-left-decoration"></div>
+    <div class="form-right-decoration"></div>
+    <div class="circle"></div>
+    <div class="form-inner">
+        <h3 th:text="${nameAction}"></h3>
+        <input type="text" th:value="${client.getSecondName}" name="secondName" placeholder="Фамилия">
+        <input type="text" th:value="${client.getFirstName}"name="firstName" placeholder="Имя">
+        <input type="text" th:value="${client.getOtchestvo}"name="otchestvo" placeholder="Отчество">
+        <input type="date" th:value="${client.getBirthDate}"name="dataRog" placeholder="Дата рождения">
+        <input type="date" th:value="${client.getRegistrDate}"name="dataReg" placeholder="Дата регистрации">
+        <input type="text" th:value="${client.getNomerCarti}"name="cardNum" placeholder="Номер карты">
+        <input type="email" th:value="${client.getEmail}" name="email" placeholder="Почта">
+        <input type="text" th:value="${client.getPassword}" name="password" placeholder="Пароль">
+        <input type="submit" value="Принять">
+    </div>
+</form>
+
+<form class="decor" method="post" th:if="'Sotrudnik' == ${tableName}">
+    <div class="form-left-decoration"></div>
+    <div class="form-right-decoration"></div>
+    <div class="circle"></div>
+    <div class="form-inner">
+        <h3 th:text="${nameAction}"></h3>
+        <input type="text" th:value="${sotrudnik.getSecondName}" name="secondName" placeholder="Фамилия">
+        <input type="text" th:value="${sotrudnik.getFirstName}" name="firstName" placeholder="Имя">
+        <input type="text" th:value="${sotrudnik.getOtchestvo}" name="otchestvo" placeholder="Отчество">
+        <input type="text" th:value="${sotrudnik.getTel}" name="tel" placeholder="Телефон">
+        <input type="date" th:value="${sotrudnik.getBirthDate}" name="dataRog" placeholder="Дата рождения">
+        <input type="date" th:value="${sotrudnik.getHireDate}" name="dataHire" placeholder="Дата найма">
+        <input type="text" th:value="${sotrudnik.getId_otdel}" name="idOtdel" placeholder="Номер отдела">
+        <input type="text" th:value="${sotrudnik.getId_adres}" name="idAdres" placeholder="Номер адреса">
+        <input type="text" th:value="${sotrudnik.getId_dolzgnost}" name="idDolzgnost" placeholder="Номер должности">
+        <input type="text" th:value="${sotrudnik.getId_zarplata}" name="idZarplata" placeholder="Номер зарплаты">
+        <input type="email" th:value="${sotrudnik.getEmail}" name="email" placeholder="Почта">
+        <input type="text" th:value="${sotrudnik.getPassword}" name="password" placeholder="Пароль">
+        <input type="submit" value="Принять">
+    </div>
+</form>
+
+<form class="decor" method="post" th:if="'Adres_sotr' == ${tableName}">
+    <div class="form-left-decoration"></div>
+    <div class="form-right-decoration"></div>
+    <div class="circle"></div>
+    <div class="form-inner">
+        <h3 th:text="${nameAction}"></h3>
+        <input type="text" th:value="${adres_sotr.getCity}" name="city" placeholder="Город">
+        <input type="text" th:value="${adres_sotr.getStreet}" name="street" placeholder="Улица">
+        <input type="text" th:value="${adres_sotr.getHouse}" name="house" placeholder="Дом">
+        <input type="text" th:value="${adres_sotr.getKorpus}" name="korpus" placeholder="Корпус">
+        <input type="text" th:value="${adres_sotr.getKvartira}" name="kvartira" placeholder="Квартира">
+        <input type="submit" value="Принять">
+    </div>
+</form>
+
+<form class="decor" method="post" th:if="'Dolzgnost' == ${tableName}">
+    <div class="form-left-decoration"></div>
+    <div class="form-right-decoration"></div>
+    <div class="circle"></div>
+    <div class="form-inner">
+        <h3 th:text="${nameAction}"></h3>
+        <input type="text" th:value="${dolzgnost.getNazvanie}" name="nazvanie" placeholder="Название Должности">
+        <input type="submit" value="Принять">
+    </div>
+</form>
+
+<form class="decor" method="post" th:if="'Kat_match' == ${tableName}">
+    <div class="form-left-decoration"></div>
+    <div class="form-right-decoration"></div>
+    <div class="circle"></div>
+    <div class="form-inner">
+        <h3 th:text="${nameAction}"></h3>
+        <input type="text" th:value="${kat_match.getNazvanie}" name="nazvanie" placeholder="Название категории матча">
+        <input type="submit" value="Принять">
+    </div>
+</form>
+
+<form class="decor" method="post" th:if="'Otdel' == ${tableName}">
+    <div class="form-left-decoration"></div>
+    <div class="form-right-decoration"></div>
+    <div class="circle"></div>
+    <div class="form-inner">
+        <h3 th:text="${nameAction}"></h3>
+        <input type="text" th:value="${otdel.getNazvanie}" name="nazvanie" placeholder="Название отдела">
+        <input type="text" th:value="${otdel.getTel}" name="tel" placeholder="Телефон">
+        <input type="submit" value="Принять">
+    </div>
+</form>
+
+<form class="decor" method="post" th:if="'Zarplata' == ${tableName}">
+    <div class="form-left-decoration"></div>
+    <div class="form-right-decoration"></div>
+    <div class="circle"></div>
+    <div class="form-inner">
+        <h3 th:text="${nameAction}"></h3>
+        <input type="text" th:value="${zarplata.getZarplata}" name="zarplata" placeholder="Зарплата">
+        <input type="submit" value="Принять">
+    </div>
+</form>
+
+<form class="decor" method="post" th:if="'Matches' == ${tableName}">
+    <div class="form-left-decoration"></div>
+    <div class="form-right-decoration"></div>
+    <div class="circle"></div>
+    <div class="form-inner">
+        <h3 th:text="${nameAction}"></h3>
+        <input type="text" th:value="${matches.getId_team1}" name="id_team1" placeholder="Команда 1">
+        <input type="text" th:value="${matches.getId_team2}" name="id_team2" placeholder="Команда 2">
+        <input type="datetime-local" th:value="${matches.getMatch_date}" name="match_date" placeholder="Дата матча">
+        <input type="text" th:value="${matches.getKoef1}" name="koef1" placeholder="Коэффициент 1">
+        <input type="text" th:value="${matches.getKoef2}" name="koef2" placeholder="Коэффициент 2">
+        <input type="text" th:value="${matches.getKat_match}" name="kat_match" placeholder="Категория матча">
+        <input type="text" th:value="${matches.getChampionship}" name="championship" placeholder="Чемпионат">
+        <input type="text" th:value="${matches.getId_status}" name="id_status" placeholder="Статус">
+        <input type="text" th:value="${matches.getCount_team1}" name="count_team1" placeholder="Счет первой команды">
+        <input type="text" th:value="${matches.getCount_team2}" name="count_team2" placeholder="Счет второй команды">
+        <input type="submit" value="Принять">
+    </div>
+</form>
+
+<form class="decor" method="post" th:if="'Stavka' == ${tableName}">
+    <div class="form-left-decoration"></div>
+    <div class="form-right-decoration"></div>
+    <div class="circle"></div>
+    <div class="form-inner">
+        <h3 th:text="${nameAction}"></h3>
+        <input type="text" th:value="${stavka.getSumma}" name="summa" placeholder="Сумма">
+        <input type="text" th:value="${stavka.getKoef}" name="koef" placeholder="Коэффициент">
+        <input type="datetime-local" th:value="${stavka.getDate}" name="date" placeholder="Дата">
+        <input type="text" th:value="${stavka.getId_client}" name="id_client" placeholder="Номер клиента">
+        <input type="text" th:value="${stavka.getId_match}" name="id_match" placeholder="Номер матча">
+        <input type="text" th:value="${stavka.getId_bet_team}" name="id_bet_team" placeholder="Номер поставленной команды">
+        <input type="text" th:value="${stavka.getId_status}" name="id_status" placeholder="Номер статуса">
+        <input type="submit" value="Принять">
+    </div>
+</form>
+
+<form class="decor" method="post" th:if="'Viplata' == ${tableName}">
+    <div class="form-left-decoration"></div>
+    <div class="form-right-decoration"></div>
+    <div class="circle"></div>
+    <div class="form-inner">
+        <h3 th:text="${nameAction}"></h3>
+        <input type="text" th:value="${viplata.getSumma}" name="summa" placeholder="Сумма">
+        <input type="datetime-local" th:value="${viplata.getDate}" name="date" placeholder="Дата">
+        <input type="text" th:value="${viplata.getId_stavka}" name="id_stavka" placeholder="Номер ставки">
+        <input type="text" th:value="${viplata.getId_client}" name="id_client" placeholder="Номер клиента">
+        <input type="submit" value="Принять">
+    </div>
+</form>
+</body>
+
+</html>

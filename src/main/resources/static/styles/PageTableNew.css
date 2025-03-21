@@ -1,0 +1,141 @@
+body {
+  background: #fff8f299;
+}
+.wrapper {
+	width: 100%;
+}
+.container {
+	width: 100%;
+	float: right;
+}
+.sidebar {
+	width: 3%;
+	float: left;
+}
+.content-2 {
+	width: 94%;
+	float: left;
+	background-color: white;
+	border-radius: 20px;
+	box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.inner-content-2 {
+	width: 90%;
+	min-height: 100px;
+	height: auto;
+	float:left;
+	background-color: #dddddd57;
+	border-radius: 20px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	margin-top: 20px;
+	line-height: 10px;
+}
+.gap-content {
+	width: 30%;
+	float: left;
+}
+
+* {
+ 	box-sizing: border-box;
+}
+.nameTable {
+        font-size: 35px;
+        margin-left: 25px;
+    }
+.button-add {
+        background-color: #0055ff;
+        width: 130px;
+        height: 40px;
+        margin-left: 25px;
+    }
+    .link-button-add {
+            text-decoration: none;
+            color: black;
+        }
+        .text-button-add {
+            color: white;
+            text-align: center;
+            font-size: 20px;
+            padding-top: 4px;
+        }
+        .button-add:hover {
+            background-color: #003d97;
+        }
+
+.hr-shelf {
+	margin: -30px auto 10px;
+	padding: 0;
+	height: 50px;
+	border: none;
+	border-bottom: 1px solid #1f1209;
+	box-shadow: 0 20px 20px -20px #333;
+	width: 100%;
+}
+
+.rounded {
+counter-reset: li;
+list-style: none;
+font: 20px "Trebuchet MS", "Lucida Sans";
+padding: 0;
+text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+.rounded .inner-content-2 {
+position: relative;
+display: block;
+padding: .4em .4em .4em 2em;
+margin: .5em 0;
+color: #444;
+text-decoration: none;
+border-radius: .3em;
+transition: .3s ease-out;
+}
+.rounded .inner-content-2:hover {background: #E9E4E0;}
+.rounded .inner-content-2:hover:before {transform: rotate(360deg);}
+.rounded .inner-content-2:before {
+content: counter(li);
+counter-increment: li;
+position: absolute;
+left: -1.3em;
+top: 50%;
+margin-top: -1.3em;
+background: #8FD4C1;
+height: 2em;
+width: 2em;
+line-height: 2em;
+border: .3em solid white;
+text-align: center;
+font-weight: bold;
+border-radius: 2em;
+transition: all .3s ease-out;
+}
+
+
+li {
+	text-align: center;
+	line-height: 25px;
+}
+.text-spisok {
+	display: inline;
+}
+
+.inner-container-3 {
+    width: 10%;
+    float: left;
+    margin-top: 40px;
+}
+
+.button-change {
+        float: left;
+        width: 5%;
+        margin-left: 20px;
+     }
+     .between-change-delete {
+        float: left;
+        width: 35%;
+     }
+    .button-delete {
+        float: left;
+        width: 5%;
+    }

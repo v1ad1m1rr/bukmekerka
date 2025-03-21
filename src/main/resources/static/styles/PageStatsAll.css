@@ -1,0 +1,106 @@
+body {
+    background-color: #fff8f299;
+}
+.stats-container {
+    width: 100%;
+
+}
+.stats-sidebar {
+    width: 5%;
+    float: left;
+}
+.stats-content {
+    width: 42.5%;
+    float: left;
+    height: 400px;
+}
+.stats-gap {
+    width: 5%;
+    float: left;
+}
+
+caption {
+      background: #F79361;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      padding: 15px;
+      color: white;
+      font-family: "Roboto Slab",serif;
+      font-style: normal;
+      font-size: 35px;
+      text-align: center;
+      margin-top: 30px;
+}
+
+table {
+    border-spacing: 0 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    width: 100%;
+}
+th {
+    padding: 20px 20px;
+    background: #e15300;
+    color: #ffffff;
+    border-right: 2px solid;
+    font-size: 1.1em;
+}
+td {
+    vertical-align: right;
+    padding: 15px;
+    font-size: 14px;
+    text-align: center;
+    border-top: 2px solid #56433D;
+    border-bottom: 2px solid #56433D;
+    border-right: 2px solid #56433D;
+}
+td:first-child {
+    border-left: 2px solid #56433D;
+}
+
+
+input[type="date"] {
+  padding: 10px 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  color: #444;
+  background: #f9f9f9;
+  transition: all 0.3s;
+}
+
+input[type="date"]:focus {
+  outline: none;
+  border-image: linear-gradient(45deg, #6a11cb, #2575fc);
+  border-image-slice: 1;
+  box-shadow: 0 0 10px rgba(106, 17, 203, 0.2);
+}
+
+
+
+input[type="submit"] {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(45deg, #ff4d4d, #ff8c00); /* Градиент от красного к оранжевому */
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 77, 77, 0.3); /* Тень в тон градиенту */
+}
+
+input[type="submit"]:hover {
+  background: linear-gradient(45deg, #ff3333, #ff7700); /* Более насыщенные цвета */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 77, 77, 0.4);
+}
+
+input[type="submit"]:active {
+  transform: translateY(0);
+  background: #ff4757; /* Ярко-красный */
+  box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/Header.css}" href="/static/styles/Header.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/PageHome.css}" href="/static/styles/PageHome.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/Footer.css}">
+</head>
+<body>
+<header th:insert="blocks/headers :: header"></header>
+
+<main>
+    <div class="slider">
+        <div class="slides">
+            <div class="slide active">
+                <img th:src="@{/images/PageHome1.jpg}" src="/static/images/PageHome1.jpg" alt="Photo 1">
+                <div class="text-container">
+                    <div class="text">SAFE BETTING</div>
+                    <div class="text">with 100% rist-free guarantee</div>
+                    <a href="/login">
+                        <button class="get-started">Get started</button>
+                    </a>
+                </div>
+            </div>
+            <div class="slide">
+                <img th:src="@{/images/PageHome2.jpg}" src="/static/images/PageHome2.jpg" alt="Photo 2">
+                <div class="text-container">
+                    <div class="text">EASY BETS</div>
+                    <div class="text">with the lowest commissions</div>
+                    <a href="/login">
+                        <button class="get-started">Join us</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-button left" onclick="previousSlide()">&#10094;</div>
+        <div class="nav-button right" onclick="nextSlide()">&#10095;</div>
+    </div>
+
+    <div class="home-container">
+        <div class="home-inner-container">
+            <p id="do-stavki">Делайте свои ставки прямо сейчас</p>
+            <div class="home-sidebar">
+                <p></p>
+            </div>
+            <div class="home-content">
+                <p class="text-home-img">
+                    <img th:src="@{/images/PageHome6.png}" class="home-img">
+                </p>
+                <p class="text-home-link">
+                    <a href="/matches/1" class="link-but">
+                        <button class="floating-button">
+                            Сделать ставку
+                        </button>
+                    </a>
+                </p>
+            </div>
+            <div class="home-gap">
+                <p></p>
+            </div>
+            <div class="home-content">
+                <p class="text-home-img">
+                    <img th:src="@{/images/PageHome4.png}" class="home-img">
+                </p>
+                <p class="text-home-link">
+                    <a href="/matches/2" class="link-but">
+                        <button class="floating-button">
+                            Сделать ставку
+                        </button>
+                    </a>
+                </p>
+            </div>
+            <div class="home-gap">
+                <p></p>
+            </div>
+            <div class="home-content">
+                <p class="text-home-img">
+                    <img th:src="@{/images/PageHome5.png}" class="home-img">
+                </p>
+                <p class="text-home-link">
+                    <a href="/matches/3" class="link-but">
+                        <button class="floating-button">
+                            Сделать ставку
+                        </button>
+                    </a>
+                </p>
+            </div>
+            <div class="home-sidebar">
+                <p></p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer th:insert="blocks/footers :: footer"></footer>
+</body>
+<script src="/static/scripts/PageHome.js" th:src="@{/scripts/PageHome.js}"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</html>

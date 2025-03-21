@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/Header.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/Footer.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/PageSellBet.css}" href="/static/styles/PageSellBet.css">
+</head>
+<body>
+<header th:insert="blocks/headers :: header"></header>
+<div class="all-bets">
+    <div class="troyka-bets">
+        <div class="bet" th:each="item : ${splitArray}">
+            <form>
+                <div class="text-field text-field_floating-3">
+                    <input type="text" name="match" id="match" th:value="${item[4]} + '-' + ${item[5]}" class="text-field__input" disabled>
+                    <label class="text-field__label" for="match">Матч</label>
+                </div>
+                <div class="text-field text-field_floating-3">
+                    <input type="text" name="datematch" id="datematch" th:value="${item[6]}" class="text-field__input" disabled>
+                    <label class="text-field__label" for="datematch">Дата матча</label>
+                </div>
+                <div class="text-field text-field_floating-3">
+                    <input type="text" name="sumstavka" id="sumstavka" th:value="${item[7]}" class="text-field__input" disabled>
+                    <label class="text-field__label" for="sumstavka">Сумма ставки</label>
+                </div>
+                <div class="text-field text-field_floating-3">
+                    <input type="text" name="datestavka" id="datestavka" th:value="${item[9]}" class="text-field__input" disabled>
+                    <label class="text-field__label" for="datestavka">Дата ставки</label>
+                </div>
+                <div class="text-field text-field_floating-3">
+                    <input type="text" name="koef" id="koef" th:value="${item[8]}" class="text-field__input" disabled>
+                    <label class="text-field__label" for="koef">Коэффициент ставки</label>
+                </div>
+                <div class="text-field text-field_floating-3">
+                    <input type="text" name="category" id="category" th:value="${item[10]}" class="text-field__input" disabled>
+                    <label class="text-field__label" for="category">Категория</label>
+                </div>
+                <div class="text-field text-field_floating-3">
+                    <input type="text" name="champ" id="champ" th:value="${item[11]}" class="text-field__input" disabled>
+                    <label class="text-field__label" for="champ">Чемпионат</label>
+                </div>
+                <div class="text-field text-field_floating-3">
+                    <input type="text" name="sumsell" id="sumsell" th:value="${item[14]}" class="text-field__input" disabled>
+                    <label class="text-field__label" for="sumsell">Сумма продажи</label>
+                </div>
+                <p></p>
+                    <div class="sell">
+                        <a th:href="'/sellBet/' + ${item[15]} + '/' + ${item[14]}">
+                            <input class="floating-button" value="Продать" readonly>
+                        </a>
+                    </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<footer th:insert="blocks/footers :: footer"></footer>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

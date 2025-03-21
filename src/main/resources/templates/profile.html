@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Profile</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/Header.css}" href="/static/styles/Header.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/PageProfile.css}" href="/static/styles/PageProfile.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/Footer.css}">
+</head>
+<header th:insert="blocks/headers :: header"></header>
+<body>
+<div class="container">
+    <form class="inner-container" method="post" th:if="'user' == ${role}" th:action="'/profile/Client'" enctype="multipart/form-data">
+        <div class="inner-sidebar">
+            <p></p>
+        </div>
+        <div class="inner-content-image">
+            <div th:if="'hasNoImage' != ${logo}">
+                <img th:src="'data:image/png;base64,' + ${avatar}" width="200px" height="200px" class="avatarka">
+            </div>
+            <div th:if="'hasNoImage' == ${logo}">
+                <img width="200px" height="200px" class="avatarka">
+            </div>
+            <label class="input-file">
+                <input type="file" name="ava" class="file-input" accept="image/jpeg, image/png">
+                <span>Выберите файл</span>
+            </label>
+        </div>
+        <div class="inner-gap">
+            <p></p>
+        </div>
+        <div class="inner-content-info" th:if="'user' == ${role}">
+            <div class="text-field text-field_floating-3">
+                <input type="text" name="secondName" id="secondNameC" th:value="${secondName}" class="text-field__input" placeholder="Фамилия">
+                <label class="text-field__label" for="secondNameC">Фамилия</label>
+            </div>
+            <div class="text-field text-field_floating-3">
+                <input type="text" name="firstName" id="firstNameC" th:value="${firstName}" class="text-field__input" placeholder="Имя">
+                <label class="text-field__label" for="firstNameC">Имя</label>
+            </div>
+            <div class="text-field text-field_floating-3">
+                <input type="text" name="otchestvo" id="otchestvoC" th:value="${otchestvo}" class="text-field__input" placeholder="Отчество">
+                <label class="text-field__label" for="otchestvoC">Отчество</label>
+            </div>
+            <div class="text-field text-field_floating-3">
+                <input type="date" name="birthDate" id="birthDateC" th:value="${birthDate}" class="text-field__input" placeholder="Дата рождения" required>
+                <label class="text-field__label" for="birthDateC">Дата рождения</label>
+            </div>
+            <div class="text-field text-field_floating-3">
+                <input type="date" name="registrDate" id="registrDate" th:value="${registrDate}" class="text-field__input" placeholder="Дата регистрации" disabled>
+                <label class="text-field__label" for="registrDate">Дата регистрации</label>
+            </div>
+            <div class="text-field text-field_floating-3">
+                <input type="text" name="cartNum" id="cartNum" th:value="${cartNum}" class="text-field__input" placeholder="Номер карты">
+                <label class="text-field__label" for="cartNum">Номер карты</label>
+            </div>
+            <div class="text-field text-field_floating-3">
+                <input type="text" name="login" id="loginС" th:value="${login}" class="text-field__input" placeholder="Логин">
+                <label class="text-field__label" for="loginС">Логин</label>
+            </div>
+            <input type="submit" value="Применить изменения" class="button-73">
+            <p></p>
+            <a th:href="'/profile/changePass'" class="change-pass link-bot-form">Сменить пароль</a>
+            <p></p>
+            <a class="link-bot-form" href="/logout">Выйти</a>
+        </div>
+        <div class="inner-sidebar">
+            <p></p>
+        </div>
+    </form>
+    <form class="inner-container" method="post" th:if="'admin' == ${role}" th:action="'/profile/Sotrudnik'" enctype="multipart/form-data">
+        <div class="inner-sidebar">
+            <p></p>
+        </div>
+        <div class="inner-content-image">
+            <div th:if="'hasNoImage' != ${logo}">
+                <img th:src="'data:image/png;base64,' + ${avatar}" width="200px" height="200px" class="avatarka">
+            </div>
+            <div th:if="'hasNoImage' == ${logo}">
+                <img width="200px" height="200px" class="avatarka">
+            </div>
+            <label class="input-file">
+                <input type="file" name="ava" class="file-input" accept="image/jpeg, image/png">
+                <span>Выберите файл</span>
+            </label>
+        </div>
+        <div class="inner-gap">
+            <p></p>
+        </div>
+        <div class="inner-content-info">
+<!--            <p class="text-info">Фамилия:</p>-->
+            <div class="text-field text-field_floating-3">
+                <input type="text" name="secondName" id="secondName" th:value="${secondName}" class="text-field__input" placeholder="Фамилия">
+                <label class="text-field__label" for="secondName">Фамилия</label>
+            </div>
+            <div class="text-field text-field_floating-3">
+                <input type="text" name="firstName" id="firstName" th:value="${firstName}" class="text-field__input" placeholder="Имя">
+                <label class="text-field__label" for="firstName">Имя</label>
+            </div>
+            <div class="text-field text-field_floating-3">
+                <input type="text" name="otchestvo" id="otchestvo" th:value="${otchestvo}" class="text-field__input" placeholder="Отчество">
+                <label class="text-field__label" for="otchestvo">Отчество</label>
+            </div>
+            <div class="text-field text-field_floating-3">
+                <input type="text" name="tel" id="tel" th:value="${tel}" class="text-field__input" placeholder="Телефон">
+                <label class="text-field__label" for="tel">Телефон</label>
+            </div>
+            <div class="text-field text-field_floating-3">
+                <input type="date" name="birthDate" id="birthDate" th:value="${birthDate}" class="text-field__input" placeholder="Дата рождения" required>
+                <label class="text-field__label" for="birthDate">Дата рождения</label>
+            </div>
+            <div class="text-field text-field_floating-3">
+                <input type="date" name="hireDate" id="hireDate" th:value="${hireDate}" class="text-field__input" placeholder="Дата Найма" disabled>
+                <label class="text-field__label" for="hireDate">Дата найма</label>
+            </div>
+            <div class="text-field text-field_floating-3">
+                <input type="text" name="login" id="login" th:value="${login}" class="text-field__input" placeholder="Логин">
+                <label class="text-field__label" for="login">Логин</label>
+            </div>
+            <p></p>
+            <input type="submit" value="Применить изменения" class="button-73">
+            <p></p>
+            <a th:href="'/profile/changePass'" class="change-pass link-bot-form">Сменить пароль</a>
+            <p></p>
+            <a class="link-bot-form" href="/logout">Выйти</a>
+        </div>
+        <div class="inner-sidebar">
+            <p></p>
+        </div>
+    </form>
+</div>
+
+<footer th:insert="blocks/footers :: footer"></footer>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script th:src="@{/scripts/PageProfileImage.js}" src="/static/scripts/PageProfileImage.js"></script>
+</body>
+</html>

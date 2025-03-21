@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/Header.css}" href="/static/styles/Header.css">
+    <link rel="stylesheet" th:href="@{/styles/PageStatsPlayer.css}" href="/static/styles/PageStatsPlayer.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/Footer.css}">
+</head>
+<body>
+    <header th:insert="blocks/headers :: header"></header>
+    <table>
+        <caption>Stats Player</caption>
+        <tr>
+            <th colspan="2">Матч</th>
+            <th>Дата матча</th>
+            <th>Сумма ставки</th>
+            <th>Коэффициент ставки</th>
+            <th>Дата ставки</th>
+            <th>Сумма выплаты</th>
+            <th>Дата выплаты</th>
+        </tr>
+        <tr th:each="splitArray : ${list}" th:class="${splitArray[6] == '0' ? 'red' : (splitArray[6] == 'в процессе' ? 'grey' : 'green')}">
+            <td th:text="${splitArray[0]}"></td>
+            <td th:text="${splitArray[1]}"></td>
+            <td th:text="${splitArray[2]}"></td>
+            <td th:text="${splitArray[3]}"></td>
+            <td th:text="${splitArray[4]}"></td>
+            <td th:text="${splitArray[5]}"></td>
+            <td th:text="${splitArray[6]}"></td>
+            <td th:text="${splitArray[7]}"></td>
+        </tr>
+    </table>
+    <div class="stats-container">
+        <div class="stats-sidebar">
+
+        </div>
+        <div class="stats-content" id="stavkaViplata">
+
+        </div>
+        <div class="stats-gap">
+
+        </div>
+        <div class="stats-content" id="countStavok">
+
+        </div>
+        <div class="stats-sidebar">
+
+        </div>
+    </div>
+
+<script src="https://www.google.com/jsapi"></script>
+    <script>
+        google.load("visualization", "1", {packages:["corechart"]});
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+         var data = google.visualization.arrayToDataTable([
+          ['Сумма поставленных', 'Сумма выигранных'],
+          ['Сумма поставленных денег', [[${sumStavka}]]],
+          ['Сумма выигранных денег', [[${sumViplata}]]],
+         ]);
+         var options = {
+          title: 'Сумма поставленных / Сумма выигранных',
+          is3D: true,
+          pieResidueSliceLabel: 'Остальное',
+          colors: ['#ff0000', '#00ff0f']
+         };
+         var chart = new google.visualization.PieChart(document.getElementById('stavkaViplata'));
+          chart.draw(data, options);
+        }
+    </script>
+
+    <script>
+        google.load("visualization", "1", {packages:["corechart"]});
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+         var data = google.visualization.arrayToDataTable([
+          ['Успешные ставки', 'Проигранные ставки'],
+          ['Успешные ставки', [[${successStavok}]]],
+          ['Проигранные ставки', [[${losesStavok}]]],
+          ['Ставки в процессе',    [[${inProcessStavok}]]],
+         ]);
+         var options = {
+          title: 'Количество ставок: [[${allStavok}]]',
+          is3D: true,
+          pieResidueSliceLabel: 'Остальное',
+          colors: ['#00ff0f', '#ff0000', '#939393']
+         };
+         var chart = new google.visualization.PieChart(document.getElementById('countStavok'));
+          chart.draw(data, options);
+        }
+    </script>
+    <footer th:insert="blocks/footers :: footer"></footer>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

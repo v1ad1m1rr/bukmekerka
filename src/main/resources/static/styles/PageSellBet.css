@@ -1,0 +1,117 @@
+body {
+ background-color: #fff8f299;
+}
+.all-bets {
+	width: 100%;
+	height: 600px;
+}
+.troyka-bets {
+	width: 100%;
+	height: 100%;
+    margin-left: 6.5%;
+}
+.bet {
+	width: 26%;
+	height: 100%;
+	background-color: #acd7ed3b;
+	float: left;
+	border-radius: 30px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+	margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 3%;
+}
+
+.sell {
+	text-align: center;
+}
+.floating-button {
+  text-decoration: none;
+  width: 200px;
+  height: 55px;
+  line-height: 45px;
+  border-radius: 45px;
+  margin: 10px 20px;
+  font-size: 13px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: #524f4e;
+  background: #f9feff;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+  transition: .3s;
+}
+.floating-button:hover {
+  background: #8dcad6c7;
+  box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+  color: white;
+  transform: translateY(-7px);
+}
+
+
+
+.text-field {
+      margin-top: 10px;
+      margin-left: 15px;
+       position: relative;
+    }
+
+    .text-field__label {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .text-field__input {
+      display: block;
+      width: 90%;
+      height: 50px;
+      padding: 0.375rem 0.75rem;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #212529;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #bdbdbd;
+      border-radius: 0.25rem;
+
+
+    }
+
+    .text-field_floating-3 .text-field__input {
+      border: none;
+      border-bottom: 1px solid #bdbdbd;
+      border-radius: 0;
+      border-top-left-radius: 0.25rem;
+      border-top-right-radius: 0.25rem;
+      height: 10px;
+      line-height: 1.25;
+      padding: 1rem 0.75rem;
+      background-color: #e5e5e596;
+    }
+
+    .text-field_floating-3 .text-field__label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      padding: 1rem .75rem;
+      pointer-events: none;
+      border: 1px solid transparent;
+      transform-origin: 0 0;
+      transition: color .15s ease-in-out, transform .15s ease-in-out;
+    }
+
+    .text-field_floating-3 .text-field__input:not(:placeholder-shown) {
+      padding-top: 1.625rem;
+      padding-bottom: .625rem;
+      border-bottom: 1px solid #03a9f4;
+    }
+
+
+    .text-field_floating-3 .text-field__input:not(:placeholder-shown)~.text-field__label {
+      transform: scale(.85) translateY(-.75rem) translateX(.15rem);
+      color: #03a9f4;
+    }

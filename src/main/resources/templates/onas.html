@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="ru" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>Главная</title>
+    <link rel="stylesheet" th:href="@{/styles/nicepage.css}" href="/static/styles/nicepage.css" media="screen">
+    <link rel="stylesheet" th:href="@{/styles/NicepageIndex.css}" href="/static/styles/NicepageIndex.css" media="screen">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/Header.css}" href="/static/styles/Header.css" media="screen">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/Footer.css}">
+    <script class="u-script" th:src="@{/scripts/NicepageJquery.js}" type="text/javascript" src="/static/scripts/NicepageJquery.js" defer=""></script>
+    <script class="u-script" th:src="@{/scripts/nicepage.js}" type="text/javascript" src="/static/scripts/nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 6.19.6, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Главная">
+    <meta property="og:type" content="website">
+    <meta data-intl-tel-input-cdn-path="intlTelInput/">
+</head>
+<body data-home-page="Главная.html" data-home-page-title="Главная" data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="ru">
+<header th:insert="/blocks/headers :: header"></header>
+<div>
+    <p id="someWhiteText">1</p>
+</div>
+<section class="u-clearfix u-grey-10 u-section-1" id="carousel_754c">
+      <div class="u-expanded-width u-palette-2-base u-shape u-shape-rectangle u-shape-1" data-animation-name="flipIn" data-animation-duration="1500" data-animation-direction="X" data-animation-delay="750"></div>
+      <div class="u-image u-image-circle u-image-1" data-image-width="900" data-image-height="900" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">
+          <img src="/static/images/PageOnas.png" th:src="@{/images/PageOnas.png}" class="u-image-1 u-image-circle u-image">
+      </div>
+      <div class="u-container-align-left u-container-style u-group u-radius-50 u-shape-round u-white u-group-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">
+        <div class="u-container-layout u-valign-middle u-container-layout-1">
+          <h3 class="u-align-left u-text u-text-1"> Есть, что почитать: </h3>
+          <p class="u-align-left u-text u-text-2"> Одна английская поговорка, раскрывающая суть азартной игры, гласит: «На победившую лошадь никогда не ставили много».&nbsp;<br></p>
+          <a href="#" class="u-active-palette-2-light-1 u-align-left u-border-none u-btn u-btn-round u-button-style u-hover-palette-2-light-1 u-palette-2-base u-radius-50 u-text-active-white u-text-body-alt-color u-text-hover-white u-btn-2">learn more</a>
+        </div>
+      </div>
+      <div class="u-shape u-shape-circle u-white u-shape-2" data-animation-name="customAnimationIn" data-animation-duration="1500"></div>
+    </section>
+
+
+
+<footer th:insert="blocks/footers :: footer"></footer>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

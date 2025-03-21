@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  # Ваше Java-приложение
+  app:
+    build: .  # Собирает образ из Dockerfile
+    restart: on-failure
+    depends_on:
+      - mysql  # Зависит от MySQL
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/bukmekerka
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=Root1234
+    ports:
+      - "8080:8080"  # Проброс порта наружу
+
+  # Сервис MySQL
+  mysql:
+    image: mysql:8.0.33
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=Root1234
+      - MYSQL_DATABASE=bukmekerka

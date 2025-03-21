@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/Header.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/Footer.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/PageMatches.css}" href="/static/styles/PageMatches.css">
+</head>
+<body>
+<header th:insert="blocks/headers :: header"></header>
+<div class="match-wrapper">
+    <div class="match-sidebar">
+        <p></p>
+    </div>
+    <div class="match-container">
+        <h1 class="name-sort" th:text="${event}"></h1>
+        <div class="match-container-nav">
+            <div class="match-container-nav-sidebar">
+                <p></p>
+            </div>
+            <div class="match-container-nav-item">
+                <a href="/matchesAdmin" class="match-nav-link" th:id="${active} == 'all' ? 'link-active' : 'link-ne-active'">
+                    <img th:src="@{/images/PageMatch1.png}" class="match-nav-item">
+                    <p class="match-nav-text">Все</p>
+                </a>
+            </div>
+            <div class="match-container-nav-gap">
+                <p></p>
+            </div>
+            <div class="match-container-nav-item">
+                <a href="/matchesAdmin/1" class="match-nav-link" th:id="${active} == 'foot' ? 'link-active' : 'link-ne-active'">
+                    <img th:src="@{/images/PageMatch2.png}" class="match-nav-item foot">
+                    <p class="match-nav-text">Футбол</p>
+                </a>
+            </div>
+            <div class="match-container-nav-gap">
+                <p></p>
+            </div>
+            <div class="match-container-nav-item">
+                <a href="/matchesAdmin/2" class="match-nav-link" th:id="${active} == 'basket' ? 'link-active' : 'link-ne-active'">
+                    <img th:src="@{/images/PageMatch3.png}" class="match-nav-item basket">
+                    <p class="match-nav-text">Баскетбол</p>
+                </a>
+            </div>
+            <div class="match-container-nav-gap">
+                <p></p>
+            </div>
+            <div class="match-container-nav-item">
+                <a href="/matchesAdmin/3" class="match-nav-link" th:id="${active} == 'hokkey' ? 'link-active' : 'link-ne-active'">
+                    <img th:src="@{/images/PageMatch4.png}" class="match-nav-item hokkey">
+                    <p class="match-nav-text">Хоккей</p>
+                </a>
+            </div>
+            <div class="match-container-nav-sidebar">
+                <p></p>
+            </div>
+        </div>
+        <div class="match-container-events">
+            <div class="match-inner-container">
+                <div th:each="item : ${splitArray}" class="match-inner-content">
+                    <form th:action="'/confirmChanges/' + ${item[6]}" method="post" id="matchesAdmin">
+                    <div class="match-inner-content-sidebar">
+                        <p></p>
+                    </div>
+                    <div class="match-inner-content-cont">
+                        <p th:text="${item[0]} + '. ' + ${item[7]}"></p>
+                        <div class="teams">
+                            <div class="team">
+                                <p th:text="${item[1]}"></p>
+                            </div>
+                            <div class="team-gap">
+                                <p></p>
+                            </div>
+                            <div class="dates">
+                                <p th:text="${item[3]}"></p>
+                            </div>
+                            <div class="team-gap">
+                                <p></p>
+                            </div>
+                            <div class="team">
+                                <p th:text="${item[2]}"></p>
+                            </div>
+                        </div>
+                        <div class="logos">
+                            <div class="logo">
+                                <img th:src="'data:image/png;base64,' + ${item[13]}" width="150px" height="120px">
+                            </div>
+                            <div class="logo-gap">
+                                <p></p>
+                            </div>
+                            <div class="logo">
+                                <img th:src="'data:image/png;base64,' + ${item[14]}" width="150px" height="120px">
+                            </div>
+                        </div>
+                        <div class="counts">
+                            <div class="count">
+                                <input type="text" th:value="${item[9]}" class="input-count" name="count_team1">
+                                <p></p>
+                            </div>
+                            <div class="count-gap">
+                                <p></p>
+                            </div>
+                            <div class="count">
+                                <input type="text" th:value="${item[10]}" class="input-count" name="count_team2">
+                                <p></p>
+                            </div>
+                        </div>
+                        <p></p>
+                        <div class="koefs">
+                                <div class="koefAdmin">
+                                    <input type="text" name="koef1" th:value="${item[4]}" class="koefTeams">
+                                </div>
+                            <div class="koef-gap">
+                                <p></p>
+                            </div>
+                                <div class="koefAdmin">
+                                    <input type="text" name="koef2" th:value="${item[5]}" class="koefTeams">
+                                </div>
+                        </div>
+                        <div class="changeEls">
+                            <p> Статус:
+                                <input type="text" list="selector" th:value="${item[8]}" name="status">
+                                <datalist id="selector">
+                                    <option value="Не начался"></option>
+                                    <option value="Идет"></option>
+                                    <option value="Завершен"></option>
+                                </datalist>
+                            </p>
+                        </div>
+                        <div class="confirm">
+                            <input type="submit" value="Внести изменения" class="pressed-button">
+                        </div>
+                    </div>
+                    <div class="match-inner-content-sidebar">
+                        <p></p>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="match-sidebar">
+        <p></p>
+    </div>
+</div>
+
+<footer th:insert="blocks/footers :: footer"></footer>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

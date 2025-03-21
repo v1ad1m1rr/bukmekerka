@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/Header.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/Footer.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/PageMatches.css}" href="/static/styles/PageMatches.css">
+</head>
+<body>
+<header th:insert="blocks/headers :: header"></header>
+<div class="match-wrapper">
+    <div class="match-sidebar">
+        <p></p>
+    </div>
+    <div class="match-container">
+        <h1 class="name-sort" th:text="${event}"></h1>
+        <div class="match-container-nav">
+            <div class="match-container-nav-sidebar">
+                <p></p>
+            </div>
+            <div class="match-container-nav-item">
+                <a href="/matches" class="match-nav-link" th:id="${active} == 'all' ? 'link-active' : 'link-ne-active'">
+                    <img th:src="@{/images/PageMatch1.png}" class="match-nav-item">
+                    <p class="match-nav-text">Все</p>
+                </a>
+            </div>
+            <div class="match-container-nav-gap">
+                <p></p>
+            </div>
+            <div class="match-container-nav-item">
+                <a href="/matches/1" class="match-nav-link" th:id="${active} == 'foot' ? 'link-active' : 'link-ne-active'">
+                    <img th:src="@{/images/PageMatch2.png}" class="match-nav-item foot">
+                    <p class="match-nav-text">Футбол</p>
+                </a>
+            </div>
+            <div class="match-container-nav-gap">
+                <p></p>
+            </div>
+            <div class="match-container-nav-item">
+                <a href="/matches/2" class="match-nav-link" th:id="${active} == 'basket' ? 'link-active' : 'link-ne-active'">
+                    <img th:src="@{/images/PageMatch3.png}" class="match-nav-item basket">
+                    <p class="match-nav-text">Баскетбол</p>
+                </a>
+            </div>
+            <div class="match-container-nav-gap">
+                <p></p>
+            </div>
+            <div class="match-container-nav-item">
+                <a href="/matches/3" class="match-nav-link" th:id="${active} == 'hokkey' ? 'link-active' : 'link-ne-active'">
+                    <img th:src="@{/images/PageMatch4.png}" class="match-nav-item hokkey">
+                    <p class="match-nav-text">Хоккей</p>
+                </a>
+            </div>
+            <div class="match-container-nav-sidebar">
+                <p></p>
+            </div>
+        </div>
+        <div class="match-container-events">
+            <div class="match-inner-container">
+                <div th:each="item : ${splitArray}" class="match-inner-content">
+                    <div class="match-inner-content-sidebar">
+                        <p></p>
+                    </div>
+                    <div class="match-inner-content-cont">
+                        <p th:text="${item[0]} + '. ' + ${item[7]}"></p>
+                        <div class="teams">
+                            <div class="team">
+                                <p th:text="${item[1]}"></p>
+                            </div>
+                            <div class="team-gap">
+                                <p></p>
+                            </div>
+                            <div class="dates">
+                                <p th:text="${item[3]}"></p>
+                            </div>
+                            <div class="team-gap">
+                                <p></p>
+                            </div>
+                            <div class="team">
+                                <p th:text="${item[2]}"></p>
+                            </div>
+                        </div>
+                        <div class="logos">
+                            <div class="logo">
+                                <img th:src="'data:image/png;base64,' + ${item[13]}" width="150px" height="120px">
+                            </div>
+                            <div class="logo-gap">
+                                <p></p>
+                            </div>
+                            <div class="logo">
+                                <img th:src="'data:image/png;base64,' + ${item[14]}" width="150px" height="120px">
+                            </div>
+                        </div>
+                        <div class="counts">
+                            <div class="count">
+                                <p th:text="${item[9]}" style="margin-top: 10px;">1</p>
+                            </div>
+                            <div class="count-gap">
+                                <p></p>
+                            </div>
+                            <div class="count">
+                                <p th:text="${item[10]}" style="margin-top: 10px;">2</p>
+                            </div>
+                        </div>
+                        <p></p>
+                        <div class="koefs" sec:authorize="isAuthenticated()">
+                            <a th:href="'/matches/' + ${item[6]} + '/1'" class="koef-link">
+                                <div class="koef">
+                                    <p th:text="${item[4]}"></p>
+                                </div>
+                            </a>
+                            <div class="koef-gap">
+                                <p></p>
+                            </div>
+                            <a th:href="'/matches/' + ${item[6]} + '/2'" class="koef-link">
+                                <div class="koef">
+                                    <p th:text="${item[5]}"></p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="match-inner-content-sidebar">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="match-sidebar">
+        <p></p>
+    </div>
+</div>
+
+<footer th:insert="blocks/footers :: footer"></footer>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

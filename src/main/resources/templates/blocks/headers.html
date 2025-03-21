@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/static/styles/Header.css">
+  <title>Header</title>
+</head>
+<body>
+<div class="nav-panel-container" th:fragment="header">
+
+
+  <ul class="menu-main">
+
+    <li><a href="/"><span class="title">Главная</span></a></li>
+
+    <li class="separator" sec:authorize="!hasRole('ADMIN')">|</li>
+    <li><a href="/matches" sec:authorize="!hasRole('ADMIN')">Матчи</a></li>
+
+    <li class="separator" sec:authorize="hasRole('ADMIN')">|</li>
+    <li><a href="/matchesAdmin" sec:authorize="hasRole('ADMIN')">Матчи</a></li>
+
+    <li class="separator" sec:authorize="hasRole('USER')">|</li>
+    <li><a href="/statsPlayer" sec:authorize="hasRole('USER')">Статистика</a></li>
+
+    <li class="separator" sec:authorize="hasRole('ADMIN')">|</li>
+    <li><a href="/statsAll" sec:authorize="hasRole('ADMIN')">История событий</a></li>
+
+    <li class="separator" sec:authorize="hasRole('ADMIN')">|</li>
+    <li><a href="/crud" sec:authorize="hasRole('ADMIN')">CRUD</a></li>
+
+    <li class="separator" sec:authorize="hasRole('USER')">|</li>
+    <li><a href="/sellBet" sec:authorize="hasRole('USER')">Продажа ставок</a></li>
+
+    <li class="separator">|</li>
+    <li><a href="/onas">О нас</a></li>
+
+    <li class="separator" sec:authorize="!isAuthenticated()">|</li>
+    <li><a href="/login" sec:authorize="!isAuthenticated()">Войти</a></li>
+
+    <li class="separator" sec:authorize="isAuthenticated()">|</li>
+    <li><a href="/profile" sec:authorize="isAuthenticated()">Профиль</a></li>
+  </ul>
+
+
+<!--  <div class="nav-panel-inner-container">-->
+<!--    <div class="nav-panel-inner-sidebar">-->
+<!--      <p></p>-->
+<!--    </div>-->
+<!--      <div class="nav-panel-inner-content-logo">-->
+<!--        <a class="nav-panel-link-logo nav-panel-link" href="/">-->
+<!--          <img th:src="@{/images/PageHomeLogo.png}" src="/static/images/PageHomeLogo.png" width="80%" height="100%">-->
+<!--        </a>-->
+<!--      </div>-->
+<!--    <a href="/matches" class="nav-panel-link" sec:authorize="!hasRole('ADMIN')">-->
+<!--      <div class="nav-panel-inner-content">-->
+<!--        <p class="nav-panel-single">Матчи</p>-->
+<!--      </div>-->
+<!--    </a>-->
+<!--    <a href="/matchesAdmin" class="nav-panel-link" sec:authorize="hasRole('ADMIN')">-->
+<!--      <div class="nav-panel-inner-content">-->
+<!--        <p class="nav-panel-single">Матчи</p>-->
+<!--      </div>-->
+<!--    </a>-->
+<!--    <a href="/statsPlayer" class="nav-panel-link" sec:authorize="hasRole('USER')">-->
+<!--      <div class="nav-panel-inner-content">-->
+<!--        <p>Статистика игрока</p>-->
+<!--      </div>-->
+<!--    </a>-->
+<!--    <a href="/sellBet" class="nav-panel-link" sec:authorize="hasRole('USER')">-->
+<!--      <div class="nav-panel-inner-content">-->
+<!--        <p>Продажа ставок</p>-->
+<!--      </div>-->
+<!--    </a>-->
+<!--    <a href="/statsAll" class="nav-panel-link" sec:authorize="hasRole('ADMIN')">-->
+<!--      <div class="nav-panel-inner-content">-->
+<!--        <p>История событий</p>-->
+<!--      </div>-->
+<!--    </a>-->
+<!--    <a href="/onas"  class="nav-panel-link">-->
+<!--      <div class="nav-panel-inner-content">-->
+<!--        <p class="nav-panel-single">О нас</p>-->
+<!--      </div>-->
+<!--    </a>-->
+<!--    <a href="/crud" class="nav-panel-link" sec:authorize="hasRole('ADMIN')">-->
+<!--      <div class="nav-panel-inner-content">-->
+<!--        <p class="nav-panel-single">CRUD</p>-->
+<!--      </div>-->
+<!--    </a>-->
+<!--    <a href="/login" class="nav-panel-link" sec:authorize="!isAuthenticated()">-->
+<!--      <div class="nav-panel-inner-content">-->
+<!--        <p class="nav-panel-single">Войти</p>-->
+<!--      </div>-->
+<!--    </a>-->
+<!--    <a href="/profile" class="nav-panel-link" sec:authorize="isAuthenticated()">-->
+<!--      <div class="nav-panel-inner-content">-->
+<!--        <p class="nav-panel-single">Профиль</p>-->
+<!--      </div>-->
+<!--    </a>-->
+<!--    <div class="nav-panel-inner-sidebar">-->
+
+<!--    </div>-->
+<!--  </div>-->
+</div>
+</body>
+</html>
